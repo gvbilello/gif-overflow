@@ -1,5 +1,5 @@
-get '/questions/:question_id/comments' do
+post '/questions/:question_id/comments' do
 end
 
-post '/questions/:question_id/comments' do
+post '/answers/:answer_id/comments' do
 end
