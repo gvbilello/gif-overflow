@@ -11,3 +11,8 @@ post '/sessions' do
     redirect "/sessions/new"
   end
 end
+
+delete '/sessions' do
+  session.clear
+  redirect '/'
+end

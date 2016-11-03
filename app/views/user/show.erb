@@ -1,6 +1,8 @@
 <h2>Welcome to Your Question Page!</h2>
 <p>Username: <%=@user.username %></p>
+<% if is_current_user? %>
 <p>Email: <%=@user.email%></p>
+<% end %>
 
 <%unless @user.questions.empty? %>
   <h3>Here are all of the questions you have asked:</h3>
