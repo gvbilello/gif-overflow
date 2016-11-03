@@ -1,5 +1,14 @@
+<% if logged_in? %>
+  <button class="new-question button" type="button">New Question</button>
+  <form id="new-question" class="hidden" action="/questions" method="POST">
+    <input type="text" name="title" placeholder="Question Title">
+    <input type="text" name="description" placeholder="Description">
+    <input type="submit" value="Submit Question">
+  </form>
+<% end %>
+
 <ul class='questions'>
 <% @questions.each do |question| %>
-  <li><a href='/questions/<%= question.id %>'><%= question.title %></a> - <span class="author-name"><%= question.author.username %></span></li>
+  <%= erb :'/question/_question', locals: {question: question} %>
 <% end %>
 </ul>

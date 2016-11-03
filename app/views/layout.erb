@@ -13,13 +13,13 @@
   <h1 id="title">GIF Overflow</h1>
   <nav>
     <% if logged_in? %>
-    <li><a href=<%= "/users/#{current_user.id}" %>><%= current_user.username %></a></li>
-    <li><form action='/sessions' method='POST'><input type='hidden' name='_method' value='DELETE'><input type='submit' value='Logout'></form></li>
+      <li><a href=<%= "/users/#{current_user.id}" %>><%= current_user.username %></a></li>
+      <li><a href='/'>Home</a></li>
+      <li><form action='/sessions' method='POST'><input type='hidden' name='_method' value='DELETE'><input type='submit' value='Logout'></form></li>
     <% else %>
-    <li><a href='/users/new'>Register</a></li>
-    <li><a href='/sessions/new'>Log In</a></li>
+      <li><a href='/users/new'>Register</a></li>
+      <li><a href='/sessions/new'>Log In</a></li>
     <% end %>
-    <li><a href='/'>Home</a></li>
   </nav>
   <br />
   <%= yield %>

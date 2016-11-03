@@ -1,3 +1,6 @@
+.hidden {
+  display: none;
+}
 
 .container {
   margin: 20px auto;
@@ -11,10 +14,27 @@
 
 }
 
+ul {
+  list-style-type: none;
+}
+
+li a {
+ text-decoration: none;
+ color: black;
+ line-height: 1.5;
+}
+
+li a:visited {
+  color: lightgrey;
+}
+
 nav {
   width: 100%;
   height: 40px;
   font-weight: bold;
+  display: table;
+  text-align: right;
+  margin: 0 auto;
 }
 
 nav .brand, nav .brand a {
@@ -29,12 +49,12 @@ nav .brand, nav .brand a {
 nav ul {
   display: inline-block;
   width: 30%;
-  text-align: right;
+  /*text-align: right;*/
 }
 
 nav li {
   margin-right: 25px;
-  display: inline;
+  display: inline-block;
 }
 
 nav li a {
@@ -53,6 +73,16 @@ form label {
 
 input {
   margin-bottom: 10px;
+  background-color: white;
+  border: none;
+  display: inline-block;
+  color: gray;
+  text-decoration: none;
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+  text-align: right;
+  margin: 0 auto;
 }
 
 .errors {
@@ -78,3 +108,4 @@ form.quirks {
 .author-name {
   font-style: italic;
 }
+
