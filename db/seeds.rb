@@ -21,8 +21,8 @@ end
 comments = 10.times.map do
   Comment.create!( response: Faker::Hacker.say_something_smart,
                    commenter_id: (1..10).to_a.sample,
-                   commentable_id: (1..10).to_a.sample
-                   commentable_type: ["question", "answer"].sample)
+                   commentable_id: (1..10).to_a.sample,
+                   commentable_type: ["Question", "Answer"].sample)
 end
 
 answers = 10.times.map do
@@ -34,5 +34,5 @@ end
 votes = 10.times.map do
   Vote.create!( voter_id: (1..10).to_a.sample,
                 voteable_id: (1..10).to_a.sample,
-                voteable_type: ["question", "answer", "comment"].sample)
+                voteable_type: ["Question", "Answer", "Comment"].sample)
 end
