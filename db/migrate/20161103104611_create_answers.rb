@@ -2,7 +2,7 @@ class CreateAnswers < ActiveRecord::Migration
   def change
     create_table :answers do |t|
       t.string :gif, null: :false
-      t.boolean :best_answer
+      t.boolean :best_answer, default: false
       t.references :answerer
       t.references :question
 
