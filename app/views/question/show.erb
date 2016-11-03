@@ -8,21 +8,29 @@
     <% end %>
   </ol>
 <% end %>
-<!-- comment on question -->
 
 <% if @answers %>
-  <ol class="answers">
-    <% @answers.each do |answer| %>
-      <li><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span></li>
-        <ol class="comments">
-          <% if answer.comments %>
-            <% answer.comments.each do |comment| %>
-              <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+  <div class= "answer-box">
+    <ol class="answers">
+      <% @answers.each do |answer| %>
+        <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span></li>
+          <ol class="comments">
+            <% if answer.comments %>
+              <% answer.comments.each do |comment| %>
+                <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+              <% end %>
             <% end %>
-            <!-- comment on answer -->
-          <% end %>
-        </ol>
-    <% end %>
-  </ol>
+      </ol>
+        <% end %>
+    </ol>
+  </div>
 <% end %>
-<!-- answer question -->
+
+
+<% if logged_in? %>
+<form id="answer-form" action='/questions/<%= @question.id %>/answers' method='post'>
+  <textarea name='response' placeholder='Answer goes here'></textarea>
+  <input type='submit' value='Submit Answer'>
+</form>
+<% end %>
+

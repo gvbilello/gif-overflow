@@ -1,11 +1,13 @@
-get '/questions/:question_id/answers' do
-end
-
-get '/questions/:question_id/comments/:comment_id/answers' do
-end
-
 post '/questions/:question_id/answers' do
-end
-
-post '/questions/:question_id/comment/:comment_id' do
+  @question = Question.find_by(id: params[:question_id])
+  if request.xhr?
+    @answer =Answer.new(gif: params[:response], question: @question, answerer: current_user)
+    if @answer.save
+      # binding.pry
+      erb :'/question/_answerform', layout: false
+    end
+      # binding.pry
+  else
+    erb :"question/show"
+  end
 end
