@@ -3,10 +3,10 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  @current_user = User.find_by(username: params[:username])
-  if @current_user && current_user.authenticate(params[:password])
-    session[:user_id] = current_user.id
-    redirect "/users/#{@current_user.id}"
+  @new_user = User.find_by(username: params[:username])
+  if @new_user && @new_user.authenticate(params[:password])
+    session[:user_id] = @new_user.id
+    redirect "/users/#{@new_user.id}"
   else
     redirect "/sessions/new"
   end

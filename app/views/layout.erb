@@ -11,6 +11,16 @@
 </head>
 <body>
   <h1 id="title">GIF Overflow</h1>
+  <nav>
+    <% if logged_in? %>
+    <li><a href=<%= "/users/#{current_user.id}" %>><%= current_user.username %></a></li>
+    <li>Logout</li>
+    <% else %>
+    <li><a href='/users/new'>Register</a></li>
+    <li><a href='/sessions/new'>Log In</a></li>
+    <% end %>
+    <li><a href='/'>Home</a></li>
+  </nav>
   <%= yield %>
 </body>
 </html>
