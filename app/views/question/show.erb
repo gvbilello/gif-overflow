@@ -8,6 +8,7 @@
     <% end %>
   </ol>
 <% end %>
+<!-- comment on question -->
 
 <% if @answers %>
   <ol class="answers">
@@ -18,8 +19,10 @@
             <% answer.comments.each do |comment| %>
               <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
             <% end %>
+            <!-- comment on answer -->
           <% end %>
         </ol>
     <% end %>
   </ol>
 <% end %>
+<!-- answer question -->
