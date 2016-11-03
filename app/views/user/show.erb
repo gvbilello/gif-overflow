@@ -1,0 +1,17 @@
+<h2>Welcome to Your Question Page!</h2>
+<p>Username: <%=@user.username %></p>
+<p>Email: <%=@user.email%></p>
+
+<%unless @user.questions.empty? %>
+  <h3>Here are all of the questions you have asked:</h3>
+
+
+  <ul> <%@user.questions.each do |question| %>
+    <li>
+      <a href= <%= "/users/#{@user.id}/questions/#{question.id}" %>><%= question.title%></a>
+      <!-- create display for votes -->
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+
