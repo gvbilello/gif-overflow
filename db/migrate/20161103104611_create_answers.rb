@@ -1,6 +1,6 @@
 class CreateAnswers < ActiveRecord::Migration
   def change
-    create_table :answer do |t|
+    create_table :answers do |t|
       t.string :gif, null: :false
       t.boolean :best_answer
       t.references :answerer
