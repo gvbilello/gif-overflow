@@ -13,7 +13,7 @@ end
 
 get '/users/:user_id' do
   @user = User.find_by(id: params[:user_id])
-  if @user #and logged in
+  if @user && logged_in?
     erb :'user/show'
   else
     redirect '/'
