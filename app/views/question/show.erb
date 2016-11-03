@@ -1,10 +1,25 @@
 <h2 class="question-title"><%= @question.title %></h2>
-<p class="question-author"><%= @question.author.username %></p>
+<p class="author-name"><%= @question.author.username %></p>
 <p class="question-description"><%= @question.description %></p>
+<% if @question.comments %>
+  <ol class="comments">
+    <% @question.comments.each do |comment| %>
+      <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+    <% end %>
+  </ol>
+<% end %>
+
 <% if @answers %>
   <ol class="answers">
     <% @answers.each do |answer| %>
-      <li><img src="<%= answer.gif %>" /></li>
+      <li><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span></li>
+        <ol class="comments">
+          <% if answer.comments %>
+            <% answer.comments.each do |comment| %>
+              <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+            <% end %>
+          <% end %>
+        </ol>
     <% end %>
   </ol>
 <% end %>
