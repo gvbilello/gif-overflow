@@ -1,27 +1,38 @@
 require 'faker'
 
 User.delete_all
-Channel.delete_all
-Subscription.delete_all
+Vote.delete_all
+Answer.delete_all
+Question.delete_all
+Comment.delete_all
 
-users = 100.times.map do
-  User.create!( :first_name => Faker::Name.first_name,
-                :last_name  => Faker::Name.last_name,
+users = 10.times.map do
+  User.create!( :username   => Faker::Internet.user_name,
                 :email      => Faker::Internet.email,
                 :password   => 'password' )
 end
 
-channels = ["Telemundo", "Unimas ", "Azteca 13", "Mexiquense",
- "ESPN", "Fox Sports", "NBC Sports", "Big Ten Network", "Nickelodeon"].map do |name|
-  Channel.create!(:name            => name,
-                  :callsign        => name[0..2].upcase,
-                  :price_per_month => Faker::Commerce.price)
+questions = 10.times.map do
+  Question.create!( title: Faker::Hipster.sentence(3) + "?",
+                    description: Faker::Hipster.paragraph(3),
+                    author_id: (1..10).to_a.sample )
 end
 
-users.each do |user|
-  user_channels = channels.sample(rand(2..4))
-  user_channels.each do |channel|
-    Subscription.create!(user: user,
-                         channel: channel)
-  end
+comments = 10.times.map do
+  Comment.create!( response: Faker::Hacker.say_something_smart,
+                   commenter_id: (1..10).to_a.sample,
+                   commentable_id: (1..10).to_a.sample,
+                   commentable_type: ["Question", "Answer"].sample)
+end
+
+answers = 10.times.map do
+  Answer.create!( gif: Faker::Avatar.image,
+                  answerer_id: (1..10).to_a.sample,
+                  question_id: (1..10).to_a.sample)
+end
+
+votes = 10.times.map do
+  Vote.create!( voter_id: (1..10).to_a.sample,
+                voteable_id: (1..10).to_a.sample,
+                voteable_type: ["Question", "Answer", "Comment"].sample)
 end
