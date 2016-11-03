@@ -1,3 +1,4 @@
+
 .container {
   margin: 20px auto;
   width: 800px;
@@ -72,4 +73,8 @@ form.quirks {
   text-align: right;
   margin-right: 20px;
   width: 200px;
+}
+
+.author-name {
+  font-style: italic;
 }
