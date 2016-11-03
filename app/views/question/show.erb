@@ -2,9 +2,9 @@
 <p class="question-author"><%= @question.author.username %></p>
 <p class="question-description"><%= @question.description %></p>
 <% if @answers %>
-  <ul class="answers">
+  <ol class="answers">
     <% @answers.each do |answer| %>
       <li><img src="<%= answer.gif %>" /></li>
     <% end %>
-  </ul>
+  </ol>
 <% end %>
