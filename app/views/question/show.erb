@@ -1,8 +1,10 @@
 <h2 class="question-title"><%= @question.title %></h2>
 <p class="question-author"><%= @question.author.username %></p>
 <p class="question-description"><%= @question.description %></p>
-<ul class="answers">
-  <% @answers.each do |answer| %>
-    <li><img src="<%= answer.gif %>" /></li>
-  <% end %>
-</ul>
+<% if @answers %>
+  <ul class="answers">
+    <% @answers.each do |answer| %>
+      <li><img src="<%= answer.gif %>" /></li>
+    <% end %>
+  </ul>
+<% end %>
