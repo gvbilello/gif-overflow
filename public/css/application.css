@@ -1,3 +1,20 @@
+/*CSS for Vote Buttons*/
+/*.vote-button {
+  color: #8C8C8C;
+  text-decoration: none;
+  display: inline;
+  vertical-align: sub;
+}
+
+.upvote-button {
+  background-color: transparent;
+  border: none;
+  padding-top: 5px;
+  color: #8C8C8C;
+  vertical-align: sub;
+  padding: 1px 0px 0px 0px;
+}*/
+
 .hidden {
   display: none;
 }

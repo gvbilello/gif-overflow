@@ -31,8 +31,9 @@ answers = 100.times.map do
                   question_id: (1..50).to_a.sample)
 end
 
-votes = 10.times.map do
+votes = 100.times.map do
   Vote.create!( voter_id: (1..10).to_a.sample,
-                voteable_id: (1..50).to_a.sample,
-                voteable_type: ["Question", "Answer", "Comment"].sample)
+                voteable_id: (1..100).to_a.sample,
+                voteable_type: ["Question", "Answer", "Comment"].sample,
+                vote_direction: [-1, 1].sample)
 end
