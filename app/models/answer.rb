@@ -5,4 +5,6 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :voteable
 
   validates_presence_of :gif
+
+  validates_format_of :gif, with: /.*\.(jpg|jpeg|png|gif)/
 end
