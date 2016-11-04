@@ -1,13 +1,12 @@
-<li id="<%= question.id %>">
-  <span class="vote">
-    <span class="points"><%= question.points %></span>
-    <button class="vote-button upvote-button">Love</button>
-    <button class="vote-button downvote-button">Hate</button>
-  </span>
-  <a href='/questions/<%= question.id %>'><%= question.title %></a> -
-  <span class="author-name"><%= question.author.username %></span>
-  <span class="timestamp"> - <%= format_timestamp(question.created_at) %></span>
+<li class="question-container" id="<%= question.id %>">
+    <div class="button-holder">
+      <div class="vote-button upvote-button"></div>
+      <div class="points"><%= question.points %></div>
+      <div class="vote-button downvote-button"></div>
+    </div>
+  <div class="question">
+    <a href='/questions/<%= question.id %>'><%= question.title %></a> - asked by
+    <a href='<%= "/users/#{question.author.id}" %>'><span class="author-name"><%= question.author.username %></span></a>
+    <span class="timestamp"> on <%= format_timestamp(question.created_at) %></span>
+  </div>
 </li>
-
-
-<!-- <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button> -->
