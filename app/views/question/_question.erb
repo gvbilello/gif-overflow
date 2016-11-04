@@ -1,8 +1,10 @@
 <li id="<%= question.id %>">
   <span class="vote">
-    <span class="points"><%= question.points %></span>
-    <button class="vote-button upvote-button">Love</button>
-    <button class="vote-button downvote-button">Hate</button>
+    <div class="button-holder">
+      <div class="vote-button upvote-button"></div>
+      <div class="points"><%= question.points %></div>
+      <div class="vote-button downvote-button"></div>
+    </div>
   </span>
   <a href='/questions/<%= question.id %>'><%= question.title %></a> -
   <span class="author-name"><%= question.author.username %></span>

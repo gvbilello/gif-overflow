@@ -1,19 +1,33 @@
 /*CSS for Vote Buttons*/
-/*.vote-button {
-  color: #8C8C8C;
-  text-decoration: none;
+.button-holder {
   display: inline;
-  vertical-align: sub;
+}
+
+.points {
+  display: block;
+  /*text-align: center;*/
+  /*position: relative;*/
 }
 
 .upvote-button {
-  background-color: transparent;
-  border: none;
-  padding-top: 5px;
-  color: #8C8C8C;
-  vertical-align: sub;
-  padding: 1px 0px 0px 0px;
-}*/
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-bottom: 10px solid black;
+}
+
+.downvote-button {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-top: 10px solid #f00;
+}
 
 .hidden {
   display: none;
