@@ -11,7 +11,8 @@ post '/questions/:question_id/comments' do
 end
 
 post '/answers/:answer_id/comments' do
-    @answer = Answer.find_by(id: params[:answer_id])
+  # binding.pry
+  @answer = Answer.find_by(id: params[:answer_id])
   if request.xhr?
     @comment = Comment.new(response: params[:comment_text], commentable_id: params[:answer_id], commentable_type: "Answer", commenter: current_user)
     if @comment.save
