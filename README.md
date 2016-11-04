@@ -4,7 +4,7 @@
 
 A Stackoverflow clone where users can sign up, log in, and request gifs. Other users can then respond with gifs and/or comment on questions/answers. We're about making the Internet more a giffier place.
 
-### USER STORIES:
+### User Stories:
 
 * Logged in users present a request for a GIF and other logged in users submit a GIF response
 * Logged in users can make comments on GIF requests and GIF responses
