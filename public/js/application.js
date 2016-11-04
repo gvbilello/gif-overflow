@@ -55,10 +55,24 @@ $(document).ready(function () {
       method: "post",
       data: data
     }).done(function(serverResponse) {
-      console.log("I'm the server response", serverResponse)
       $(".comments").append(serverResponse);
       $("form#new-comment").find("input[name='comment_text']").val('')
     });
   });
+
+    $('form#answer-comment').on('submit', function(event){
+    event.preventDefault();
+    var route = $(this).attr("action");
+    var data = $(this).serialize();
+    $.ajax({
+      url: route,
+      method: "post",
+      data: data
+    }).done(function(serverResponse) {
+      $(".answer-comments").append(serverResponse);
+      $("form#answer-comment").find("input[name='comment_text']").val('')
+    });
+  });
+
 
 });
