@@ -4,8 +4,12 @@
 
 A Stackoverflow clone where users can sign up, log in, and request gifs. Other users can then respond with gifs and/or comment on questions/answers. We're about making the Internet more a giffier place.
 
+### USER STORIES:
+
+USER STORIES GO HERE
+
 ###Coded by:
 * [Scott Dixon](https://www.githubcom/dixonscottr)
 * [Sofia Cepeda](https://www.github.com/sofiaclara93)
 * [Gregory Biello](https://github.com/gvbilello)
-* [Melanie Gershamn](https://github.com/melaniegershman)
+* [Melanie Gershman](https://github.com/melaniegershman)
