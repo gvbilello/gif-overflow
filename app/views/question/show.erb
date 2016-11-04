@@ -17,7 +17,14 @@
   <div class= "answer-box">
     <ol class="answers">
       <% @answers.each do |answer| %>
-        <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span></li>
+        <li class= "answer-gif" id = '<%= "answer-#{answer.id}"%>'>
+          <div class="button-holder">
+            <div class="vote-button upvote-button"></div>
+            <div class="answer-points"><%= answer.points %></div>
+            <div class="vote-button downvote-button"></div>
+          </div>
+          <img class="response-gif" src="<%= answer.gif %>" />
+          <span class="author-name"> - <%= answer.answerer.username %></span></li>
           <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
             <% if answer.comments %>
               <% answer.comments.each do |comment| %>

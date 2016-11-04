@@ -112,6 +112,24 @@ $(document).ready(function () {
     });
   });
 
+  $('.answers').on("click", ".upvote-button", function(event) {
+    event.preventDefault();
+    var voteDirection = 1;
+    var answerID = $(this).closest("li").attr("id");
+    var route = '/answers/' + answerID + '/votes'
+    debugger;
+    $.ajax({
+      url: route,
+      method: 'POST',
+      data: {"type": "Answer", "answer_id": answerID, "vote_direction": voteDirection}
+    })
+    .done(function(serverResponse) {
+      var questionID = serverResponse['question_id'];
+      var points = serverResponse['points'];
+      $("li#" + questionID).find(".points").text(points);
+    });
+  });
+
 });
 
 

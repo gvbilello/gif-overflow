@@ -3,6 +3,9 @@ body {
   font-family: Futura, sans-serif;
 }
 
+.response-gif {
+  display: inline;
+}
 
 /*CSS for Vote Buttons*/
 
@@ -34,10 +37,15 @@ body {
 .button-holder {
   -webkit-flex: initial;
           flex: initial;
+  display: inline !important;
 }
 
 .points {
   text-align: center;
+}
+
+.answer-points {
+  padding-left: 5px;
 }
 
 .upvote-button {
