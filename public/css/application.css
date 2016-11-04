@@ -1,5 +1,18 @@
+body {
+  font-family: Futura, sans-serif;
+}
+
+
 .hidden {
   display: none;
+}
+
+
+.button {
+  background-color: #84DCCF;
+  border-radius: 6px;
+  border: none;
+  padding: 3px 5px 3px 5px ;
 }
 
 .container {
@@ -21,7 +34,7 @@ ul {
 li a {
  text-decoration: none;
  color: black;
- line-height: 1.5;
+ line-height: 1.75;
 }
 
 li a:visited {
@@ -109,3 +122,16 @@ form.quirks {
   font-style: italic;
 }
 
+#new-question[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form #new-question {
+  width: 80%
+}

@@ -36,7 +36,6 @@ $(document).ready(function () {
 
     $('li').on('click', '.delete', function(event){
     event.preventDefault();
-    var thingy = event.target
     var route = $(this).attr("href");
     $.ajax({
       url: route,
@@ -44,6 +43,21 @@ $(document).ready(function () {
     }).done(function(response) {
       // Track down question to be deleted by its ID and use that as a class to query and remove
       $('.' + response.id).remove()
+    });
+  });
+
+    $('form#new-comment').on('submit', function(event){
+    event.preventDefault();
+    var route = $(this).attr("action");
+    var data = $(this).serialize();
+    $.ajax({
+      url: route,
+      method: "post",
+      data: data
+    }).done(function(serverResponse) {
+      console.log("I'm the server response", serverResponse)
+      $(".comments").append(serverResponse);
+      $("form#new-comment").find("input[name='comment_text']").val('')
     });
   });
 
