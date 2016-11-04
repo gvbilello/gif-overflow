@@ -1,12 +1,29 @@
 /*CSS for Vote Buttons*/
+
+.question-container {
+  display: -webkit-flex;
+  display: flex;
+  padding: 5px;
+  margin-left: -30px;
+  margin-right: 10px;
+  border-bottom: 1px solid lightgrey;
+}
+.vote-button:hover {
+  cursor: pointer;
+}
+.question {
+  -webkit-flex: 1;
+          flex: 1;
+  padding-left: 10px;
+  padding-top: 7px;
+}
 .button-holder {
-  display: inline;
+  -webkit-flex: initial;
+          flex: initial;
 }
 
 .points {
-  display: block;
-  /*text-align: center;*/
-  /*position: relative;*/
+  text-align: center;
 }
 
 .upvote-button {
@@ -16,7 +33,7 @@
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
 
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid LightSkyBlue;
 }
 
 .downvote-button {
@@ -25,8 +42,7 @@
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-
-  border-top: 10px solid #f00;
+  border-top: 10px solid LightCoral;
 }
 
 .hidden {
