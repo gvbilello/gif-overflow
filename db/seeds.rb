@@ -13,7 +13,7 @@ users = 10.times.map do
 end
 
 questions = 100.times.map do
-  Question.create!( title: Faker::Hipster.sentence(3) + "?",
+  Question.create!( title: Faker::Hipster.words((5..10).to_a.sample).join(" ").capitalize + "?",
                     description: Faker::Hipster.paragraph(3),
                     author_id: (1..10).to_a.sample )
 end
@@ -32,7 +32,7 @@ answers = 100.times.map do
 end
 
 votes = 100.times.map do
-  Vote.create!( voter_id: (1..10).to_a.sample,
+  Vote.create( voter_id: (1..10).to_a.sample,
                 voteable_id: (1..100).to_a.sample,
                 voteable_type: ["Question", "Answer", "Comment"].sample,
                 vote_direction: [-1, 1].sample)

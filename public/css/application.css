@@ -8,15 +8,23 @@
   margin-right: 10px;
   border-bottom: 1px solid lightgrey;
 }
+
 .vote-button:hover {
   cursor: pointer;
 }
+
+.question-title {
+  font-size: 120%;
+  font-weight: bold;
+}
+
 .question {
   -webkit-flex: 1;
           flex: 1;
   padding-left: 10px;
   padding-top: 7px;
 }
+
 .button-holder {
   -webkit-flex: initial;
           flex: initial;
