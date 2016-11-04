@@ -24,3 +24,14 @@ get '/questions/:question_id' do
   @answers = Answer.where(question_id: params[:question_id])
   erb :'/question/show'
 end
+
+delete '/question/:question_id' do
+  if request.xhr?
+    Question.delete(params[:question_id])
+    content_type :json
+    {id: params[:question_id]}.to_json
+  else
+    erb :'/user/show'
+  end
+end
+

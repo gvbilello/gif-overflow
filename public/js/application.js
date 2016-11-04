@@ -34,4 +34,17 @@ $(document).ready(function () {
     });
   });
 
+    $('li').on('click', '.delete', function(event){
+    event.preventDefault();
+    var thingy = event.target
+    var route = $(this).attr("href");
+    $.ajax({
+      url: route,
+      method: "delete"
+    }).done(function(response) {
+      // Track down question to be deleted by its ID and use that as a class to query and remove
+      $('.' + response.id).remove()
+    });
+  });
+
 });

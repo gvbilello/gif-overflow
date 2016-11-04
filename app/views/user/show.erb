@@ -9,8 +9,9 @@
 
 
   <ul> <%@user.questions.each do |question| %>
-    <li>
+    <li class= <%="#{question.id}"%>>
       <a href= <%= "/questions/#{question.id}" %>><%= question.title%></a>
+      <a class="delete" href=<%= "/question/#{question.id}"%>>delete</a>
       <!-- create display for votes -->
     </li>
     <% end %>
