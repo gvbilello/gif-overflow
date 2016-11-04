@@ -34,4 +34,39 @@ $(document).ready(function () {
     });
   });
 
+  $('.questions').on("click", ".upvote-button", function(event) {
+    event.preventDefault();
+    var voteDirection = 1;
+    var questionId = $(this).closest("li").attr("id");
+    $.ajax({
+      url: '/votes',
+      method: 'POST',
+      data: {"type": "Question", "question_id": questionId, "vote_direction": voteDirection}
+    })
+    .done(function(serverResponse) {
+      var questionID = serverResponse['question_id'];
+      var points = serverResponse['points'];
+      $("li#" + questionID).find(".points").text(points);
+    });
+  });
+
+  $('.questions').on("click", ".downvote-button", function() {
+    event.preventDefault();
+    var voteDirection = -1;
+    var questionId = $(this).closest("li").attr("id");
+
+    $.ajax({
+      url: '/votes',
+      method: 'POST',
+      data: {"type": "Question", "question_id": questionId, "vote_direction": voteDirection}
+    })
+    .done(function(serverResponse) {
+      var questionID = serverResponse['question_id'];
+      var points = serverResponse['points'];
+      $("li#" + questionID).find(".points").text(points);
+    });
+  });
+
 });
+
+
