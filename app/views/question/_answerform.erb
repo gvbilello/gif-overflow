@@ -1,12 +1,12 @@
 <li class= "answer-gif"><img src="<%= @answer.gif %>" /><span class="author-name"> - <%= @answer.answerer.username %></span></li>
-<ol class='answer-comments' id = 'answer-<%= "#{@answer.id}" %>'>
+<ol class='answer-comments' id='answer-comment-<%= "#{@answer.id}" %>'>
   <% if @answer.comments %>
   <% @answer.comments.each do |comment| %>
   <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
   <% end %>
   <% end %>
 </ol>
-<form id='<%="answer-comment-#{@answer.id}"%>' action=<%="/answers/#{@answer.id}/comments"%>>
+<form class='answer-comment' id='<%="answer-comment-#{@answer.id}"%>' action=<%="/answers/#{@answer.id}/comments"%>>
   <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
   <input type= "submit" class="button" value= "Submit"></input>
 </form>

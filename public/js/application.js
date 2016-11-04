@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-  $(document).on('submit', 'form.answer-comment', function() {
+  $(document).on('submit', 'form.answer-comment', function(event) {
+    event.preventDefault();
+    console.log('yo what up')
   });
 
   $(".new-question").click(function() {
@@ -64,8 +66,10 @@ $(document).ready(function () {
     });
   });
 
-    $('form.answer-comment').on('submit', function(event){
+    $('ol.answers').on('submit','form.answer-comment', function(event){
       event.preventDefault();
+      // debugger;
+      var target = event.target;
       var route = $(this).attr("action");
       var data = $(this).serialize();
       var answerID = $(this).attr('id');
@@ -74,10 +78,27 @@ $(document).ready(function () {
         method: "post",
         data: data
       }).done(function(serverResponse) {
+        // debugger;
         $('ol#' + answerID).append(serverResponse);
         $('form').find('input').val('');
       });
     });
+
+    //semi-working old form jquery stuff things here below
+    //   $('form.answer-comment').on('submit', function(event){
+    //   event.preventDefault();
+    //   var route = $(this).attr("action");
+    //   var data = $(this).serialize();
+    //   var answerID = $(this).attr('id');
+    //   $.ajax({
+    //     url: route,
+    //     method: "post",
+    //     data: data
+    //   }).done(function(serverResponse) {
+    //     $('ol#' + answerID).append(serverResponse);
+    //     $('form').find('input').val('');
+    //   });
+    // });
 
   $('.questions').on("click", ".upvote-button", function(event) {
     event.preventDefault();
