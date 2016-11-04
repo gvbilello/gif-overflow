@@ -80,7 +80,15 @@ li a {
 }
 
 li a:visited {
-  color: lightgrey;
+  color: MediumPurple ;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+li a:link {
+  color: LightSkyBlue;
 }
 
 nav {
