@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+  // $(document).on('submit', 'form.answer-comment', function() {
+  // });
+
   $(".new-question").click(function() {
     $(this).addClass("hidden");
     $("#new-question").removeClass("hidden");
@@ -46,7 +49,8 @@ $(document).ready(function () {
     });
   });
 
-    $('form#new-comment').on('submit', function(event){
+
+    $('form.new-comment').on('submit', function(event){
     event.preventDefault();
     var route = $(this).attr("action");
     var data = $(this).serialize();
@@ -56,23 +60,24 @@ $(document).ready(function () {
       data: data
     }).done(function(serverResponse) {
       $(".comments").append(serverResponse);
-      $("form#new-comment").find("input[name='comment_text']").val('')
+      $("form.new-comment").find("input[name='comment_text']").val('')
     });
   });
 
-    $('form#answer-comment').on('submit', function(event){
-    event.preventDefault();
-    var route = $(this).attr("action");
-    var data = $(this).serialize();
-    $.ajax({
-      url: route,
-      method: "post",
-      data: data
-    }).done(function(serverResponse) {
-      $(".answer-comments").append(serverResponse);
-      $("form#answer-comment").find("input[name='comment_text']").val('')
+    $('form.answer-comment').on('submit', function(event){
+      event.preventDefault();
+      var route = $(this).attr("action");
+      var data = $(this).serialize();
+      var answerID = $(this).attr('id');
+      $.ajax({
+        url: route,
+        method: "post",
+        data: data
+      }).done(function(serverResponse) {
+        $('ol#' + answerID).append(serverResponse);
+        $('form').find('input').val('');
+      });
     });
-  });
 
 
 });

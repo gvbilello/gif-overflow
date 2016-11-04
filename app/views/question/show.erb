@@ -7,7 +7,7 @@
       <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
     <% end %>
   </ol>
-    <form id= "new-comment" action= <%="/questions/#{@question.id}/comments"%>>
+    <form class= "new-comment" action= <%="/questions/#{@question.id}/comments"%> method="post">
       <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
       <input type= "submit" class="button" value= "Submit"></input>
     </form>
@@ -18,14 +18,14 @@
     <ol class="answers">
       <% @answers.each do |answer| %>
         <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span></li>
-          <ol class="answer-comments">
+          <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
             <% if answer.comments %>
               <% answer.comments.each do |comment| %>
                 <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
               <% end %>
             <% end %>
       </ol>
-             <form id= "answer-comment" action= <%="/answers/#{answer.id}/comments"%>>
+             <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
               <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
               <input type= "submit" class="button" value= "Submit"></input>
             </form>
