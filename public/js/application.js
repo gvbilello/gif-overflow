@@ -133,6 +133,19 @@ $(document).ready(function () {
     });
   });
 
+  $('.best-answer-div').on("click", ".best-answer-button", function() {
+    // debugger;
+    var answerID = $(this).parents(".best-answer-div").attr("id");
+    $.ajax({
+      url: '/answers/' + answerID + '/best',
+      method: 'POST'
+    })
+    .done(function(serverResponse) {
+      debugger;
+      alert("ayo");
+    });
+  });
+
 });
 
 
