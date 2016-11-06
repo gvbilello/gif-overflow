@@ -47,8 +47,8 @@
 
   <% if logged_in? %>
   <form id="answer-form" action='/questions/<%= @question.id %>/answers' method='post'>
-    <textarea name='response' placeholder='Answer goes here'></textarea>
-    <input type='submit' value='Submit Answer'>
+    <textarea name='response' placeholder='GIF url goes here'></textarea>
+    <input type='submit' value='Submit GIF'>
   </form>
   <% end %>
 </section>
