@@ -23,7 +23,12 @@
       <% if @answers %>
         <% @answers.each do |answer| %>
           <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span>
-          
+          <!-- best answer button -->
+          <div class="best-answer-div" id=<%= answer.id %>>
+          <% if @question.author.id == current_user.id %>
+            <button class="best-answer-button" type="button">Best Answer</button>
+          <% end %>
+          </div>
           <!-- Comments to each answer -->
           <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
             <% if answer.comments %>
