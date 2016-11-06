@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" href="/css/normalize.css?app=skills">
   <link rel="stylesheet" href="/css/application.css?app=skills">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" rel="stylesheet">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js?app=skills"></script>
@@ -10,19 +11,23 @@
   <title>GIF Overflow</title>
 </head>
 <body>
-  <h1 id="title"><img src="/images/gif-overflow.gif"></h1>
-  <nav>
-    <% if logged_in? %>
-      <li><a href=<%= "/users/#{current_user.id}" %>><%= current_user.username %></a></li>
-      <li><a href='/'>Home</a></li>
-      <li><form action='/sessions' method='POST'><input type='hidden' name='_method' value='DELETE'><input type='submit' value='Logout'></form></li>
-    <% else %>
-      <li><a href='/users/new'>Register</a></li>
-      <li><a href='/'>Home</a></li>
-      <li><a href='/sessions/new'>Log In</a></li>
-    <% end %>
-  </nav>
-  <br />
-  <%= yield %>
+  <div class="wrapper-main">
+    <header>
+      <img class="logo" src="/images/gif-overflow.gif">
+      <nav>
+        <% if logged_in? %>
+          <li><a href=<%= "/users/#{current_user.id}" %>><%= current_user.username %></a></li>
+          <li><a href='/'>Home</a></li>
+          <li><form action='/sessions' method='POST'><input type='hidden' name='_method' value='DELETE'><input type='submit' value='Logout'></form></li>
+        <% else %>
+          <li><a href='/users/new'>Register</a></li>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/sessions/new'>Log In</a></li>
+        <% end %>
+      </nav>
+    </header>
+
+    <%= yield %>
+  </div>
 </body>
 </html>

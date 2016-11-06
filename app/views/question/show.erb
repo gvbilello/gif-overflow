@@ -1,44 +1,54 @@
-<h2 class="question-title"><%= @question.title %></h2>
-<p class="author-name"><%= @question.author.username %></p>
-<p class="question-description"><%= @question.description %></p>
-<% if @question.comments %>
-  <ol class="comments">
-    <% @question.comments.each do |comment| %>
-      <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
-    <% end %>
-  </ol>
-    <form class= "new-comment" action= <%="/questions/#{@question.id}/comments"%> method="post">
-      <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
-      <input type= "submit" class="button" value= "Submit"></input>
-    </form>
-<% end %>
+<!-- Post page -->
+<section class="question">
+  <h2 class="question-title"><%= @question.title %></h2>
+  <p class="author-name"><%= @question.author.username %></p>
+  <p class="question-description"><%= @question.description %></p>
 
-<div class= "answer-box">
-  <ol class="answers">
-    <% if @answers %>
-      <% @answers.each do |answer| %>
-        <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span></li>
-        <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
-          <% if answer.comments %>
-            <% answer.comments.each do |comment| %>
-              <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
-            <% end %>
-          <% end %>
-        </ol>
-        <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
-          <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
-          <input type= "submit" class="button" value= "Submit"></input>
-       </form>
+  <!-- Comments for main question -->
+  <% if @question.comments %>
+    <ol class="comments">
+      <% @question.comments.each do |comment| %>
+        <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
       <% end %>
-    <% end %>
-  </ol>
-</div>
+    </ol>
+      <form class= "new-comment" action= <%="/questions/#{@question.id}/comments"%> method="post">
+        <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
+        <input type= "submit" class="button" value= "Submit"></input>
+      </form>
+  <% end %>
+
+  <!-- Answers to main question -->
+  <div class= "answer-box">
+    <ol class="answers">
+      <% if @answers %>
+        <% @answers.each do |answer| %>
+          <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span>
+          
+          <!-- Comments to each answer -->
+          <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
+            <% if answer.comments %>
+              <% answer.comments.each do |comment| %>
+                <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+              <% end %>
+            <% end %>
+          </ol>
+          <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
+            <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
+            <input type= "submit" class="button" value= "Submit"></input>
+         </form>
+        <% end %>
+
+          </li>
+
+      <% end %>
+    </ol>
+  </div>
 
 
-<% if logged_in? %>
-<form id="answer-form" action='/questions/<%= @question.id %>/answers' method='post'>
-  <textarea name='response' placeholder='Answer goes here'></textarea>
-  <input type='submit' value='Submit Answer'>
-</form>
-<% end %>
-
+  <% if logged_in? %>
+  <form id="answer-form" action='/questions/<%= @question.id %>/answers' method='post'>
+    <textarea name='response' placeholder='Answer goes here'></textarea>
+    <input type='submit' value='Submit Answer'>
+  </form>
+  <% end %>
+</section>
