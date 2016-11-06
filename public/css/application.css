@@ -83,7 +83,44 @@ ol.comments li {
 ol.comments li + li {
   border-top: 1px solid #ececec;
 }
-/*CSS for Vote Buttons*/
+
+/*Question answers*/
+ol.answers {
+  margin-top: 35px;
+}
+
+ol.answers .answer-gif + .answer-gif {
+  margin-top: 25px;
+}
+
+ol.answers .answer-gif {
+  border-left: 3px solid rgba(0,0,0,0.1);
+  padding-left: 25px;
+}
+
+ol.answers .answer-gif img {
+  display: block;
+}
+
+
+ol.answers .answer-gif ol.answer-comments {
+  margin-top: 25px;
+}
+
+ol.answers .answer-gif input[type="textarea"] {
+  width: 91.2%;
+}
+ol.answers .answer-gif ol.answer-comments li+li{
+  padding: 15px 0;
+}
+ol.answers .answer-gif ol.answer-comments .author-name {
+  margin-left: 4px;
+}
+
+
+
+
+  /*CSS for Vote Buttons*/
 
 .question-container {
   display: -webkit-flex;
@@ -180,6 +217,12 @@ li a:link {
   color: LightSkyBlue;
 }
 
+li a.delete {
+  color: rgba(68, 68, 68, 0.77);
+  background-color: rgba(244, 67, 54, 0.17);
+  border-radius: 3px;
+  padding: 5px;
+}
 
 form label {
   font-weight: bold;
@@ -202,6 +245,19 @@ input[type="textarea"] {
   width: 91.5%;
   margin-top: 20px;
   border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: #84DCCF;
+  border: none;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 35px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 15px;
 }
 
 
