@@ -5,8 +5,9 @@
       <div class="vote-button downvote-button"></div>
     </div>
   <div class="question">
-    <a href='/questions/<%= question.id %>'><span class="question-title"><%= question.title %></span></a> - asked by
+    <a href='/questions/<%= question.id %>'><span class="question-title"><%= question.title %></span></a>
+    <p> asked by
     <a href='<%= "/users/#{question.author.id}" %>'><span class="author-name"><%= question.author.username %></span></a>
-    <span class="timestamp"> on <%= format_timestamp(question.created_at) %></span>
+    <span class="timestamp"> <%= time_difference(question.created_at) %></span></p>
   </div>
 </li>
