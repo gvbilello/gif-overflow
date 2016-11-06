@@ -21,12 +21,36 @@
   <div class= "answer-box">
     <ol class="answers">
       <% if @answers %>
+        <!-- finding and displaying the best answer, if it exists -->
         <% @answers.each do |answer| %>
+          <% if answer.best_answer == true %>
+            <p>BEST ANSWER</p>
+            <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span>
+          <!-- Comments to best answer -->
+          <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
+            <% if answer.comments %>
+              <% answer.comments.each do |comment| %>
+                <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+              <% end %>
+            <% end %>
+          </ol>
+          <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
+            <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
+            <input type= "submit" class="button" value= "Submit"></input>
+         </form>
+        <% end %>
+        </li>
+      <% end %>
+        <!-- displaying remaining answers -->
+        <% @answers.each do |answer| %>
+          <!-- skips displaying the best answer when displaying remaining answers -->
+          <% next if answer.best_answer == true %>
+          
           <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span>
           <!-- best answer button -->
           <div class="best-answer-div" id=<%= answer.id %>>
           <% if @question.author.id == current_user.id %>
-            <button class="best-answer-button" type="button">Best Answer</button>
+            <button class="best-answer-button" type="button">Select Best Answer</button>
           <% end %>
           </div>
           <!-- Comments to each answer -->
