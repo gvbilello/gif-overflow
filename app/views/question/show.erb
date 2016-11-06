@@ -22,13 +22,13 @@
     <ol class="answers">
       <% if @answers %>
         <% @answers.each do |answer| %>
-          <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span>
+          <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <a href=<%= "/users/#{answer.answerer.id}" %>><%= answer.answerer.username %></a></span>
           
           <!-- Comments to each answer -->
           <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
             <% if answer.comments %>
               <% answer.comments.each do |comment| %>
-                <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+                <li><%= comment.response %><span class="author-name"> - <a href='<%= "/users/#{comment.commenter.id}" %>'><%= comment.commenter.username %></a></span></li>
               <% end %>
             <% end %>
           </ol>
