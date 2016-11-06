@@ -8,7 +8,7 @@
   <% if @question.comments %>
     <ol class="comments">
       <% @question.comments.each do |comment| %>
-        <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+        <li><%= comment.response %><span class="author-name"> - <a href='<%= "/users/#{comment.commenter.id}" %>'><%= comment.commenter.username %></a></span></li>
       <% end %>
     </ol>
       <form class= "new-comment" action= <%="/questions/#{@question.id}/comments"%> method="post">
@@ -57,7 +57,7 @@
           <ol id="answer-comment-<%=answer.id%>" class="answer-comments">
             <% if answer.comments %>
               <% answer.comments.each do |comment| %>
-                <li><%= comment.response %><span class="author-name"> - <%= comment.commenter.username %></span></li>
+                <li><%= comment.response %><span class="author-name"> - <a href='<%= "/users/#{comment.commenter.id}" %>'><%= comment.commenter.username %></a></span></li>
               <% end %>
             <% end %>
           </ol>
@@ -76,8 +76,8 @@
 
   <% if logged_in? %>
   <form id="answer-form" action='/questions/<%= @question.id %>/answers' method='post'>
-    <textarea name='response' placeholder='Answer goes here'></textarea>
-    <input type='submit' value='Submit Answer'>
+    <textarea name='response' placeholder='GIF url goes here'></textarea>
+    <input type='submit' value='Submit GIF'>
   </form>
   <% end %>
 </section>

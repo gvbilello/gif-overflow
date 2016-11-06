@@ -287,9 +287,9 @@ form.quirks {
   font-weight: normal;
 }
 
-.author-name::before {
+/*.author-name::before {
   content: "by ";
-}
+}*/
 #new-question[type=text] {
     width: 100%;
     padding: 12px 20px;
