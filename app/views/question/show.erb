@@ -1,7 +1,7 @@
 <!-- Post page -->
 <section class="question">
   <h2 class="question-title"><%= @question.title %></h2>
-  <p class="author-name"><%= @question.author.username %></p>
+  <p>Submitted by <span class="author-name"><a href='<%= "/users/#{@question.author_id}" %>'><%= @question.author.username %></span></a> <%= time_difference(@question.created_at)%></p><br />
   <p class="question-description"><%= @question.description %></p>
 
   <!-- Comments for main question -->
