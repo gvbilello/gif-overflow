@@ -53,7 +53,7 @@
           <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span>
           <!-- best answer button -->
           <div class="best-answer-div" id=<%= answer.id %>>
-          <% if logged_in? && @question.author.id == current_user.id %>
+          <% if logged_in? && (@question.author.id == current_user.id) %>
             <button class="best-answer-button" type="button">Select Best Answer</button>
           <% end %>
           </div>
