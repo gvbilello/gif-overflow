@@ -18,7 +18,7 @@ def time_difference(time_created)
 
   if minutes.floor > 0
     time_stamp = "#{minutes.floor} minutes ago"
-  elsif hour.floor > 0
+  elsif hours.floor > 0
     time_stamp = "#{hours.floor} hours ago"
   else
     time_stamp = "#{seconds.floor} seconds ago"

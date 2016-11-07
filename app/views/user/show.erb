@@ -9,7 +9,9 @@
   <ul> <%@user.questions.each do |question| %>
     <li class= <%="#{question.id}"%>>
       <a href= <%= "/questions/#{question.id}" %>><%= question.title%></a>
+      <% if logged_in? && owns_question?(question) %>
       <a class="delete" href=<%= "/question/#{question.id}"%>>delete</a>
+      <% end %>
       <!-- create display for votes -->
     </li>
     <% end %>
