@@ -1,7 +1,7 @@
 <!-- Post page -->
 <section class="question">
   <h2 class="question-title"><%= @question.title %></h2>
-  <p class="author-name"><%= @question.author.username %></p>
+  <p>Submitted by <span class="author-name"><a href='<%= "/users/#{@question.author_id}" %>'><%= @question.author.username %></span></a> <%= time_difference(@question.created_at)%></p><br />
   <p class="question-description"><%= @question.description %></p>
 
   <!-- Comments for main question -->
@@ -11,10 +11,12 @@
         <li><%= comment.response %><span class="author-name"> - <a href='<%= "/users/#{comment.commenter.id}" %>'><%= comment.commenter.username %></a></span></li>
       <% end %>
     </ol>
+    <% if logged_in? %>
       <form class= "new-comment" action= <%="/questions/#{@question.id}/comments"%> method="post">
         <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
         <input type= "submit" class="button" value= "Submit"></input>
       </form>
+    <% end %>
   <% end %>
 
   <!-- Answers to main question -->
@@ -34,10 +36,12 @@
               <% end %>
             <% end %>
           </ol>
+          <% if logged_in? %>
           <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
             <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
             <input type= "submit" class="button" value= "Submit"></input>
          </form>
+         <% end %>
         <% end %>
         </li>
       <% end %>
@@ -61,10 +65,12 @@
               <% end %>
             <% end %>
           </ol>
+          <% if logged_in? %>
           <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
             <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
             <input type= "submit" class="button" value= "Submit"></input>
          </form>
+         <% end %>
         <% end %>
 
           </li>
