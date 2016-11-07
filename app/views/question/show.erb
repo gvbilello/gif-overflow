@@ -11,10 +11,12 @@
         <li><%= comment.response %><span class="author-name"> - <a href='<%= "/users/#{comment.commenter.id}" %>'><%= comment.commenter.username %></a></span></li>
       <% end %>
     </ol>
+    <% if logged_in? %>
       <form class= "new-comment" action= <%="/questions/#{@question.id}/comments"%> method="post">
         <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
         <input type= "submit" class="button" value= "Submit"></input>
       </form>
+    <% end %>
   <% end %>
 
   <!-- Answers to main question -->
@@ -34,10 +36,12 @@
               <% end %>
             <% end %>
           </ol>
+          <% if logged_in? %>
           <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
             <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
             <input type= "submit" class="button" value= "Submit"></input>
          </form>
+         <% end %>
         <% end %>
         </li>
       <% end %>
@@ -49,7 +53,7 @@
           <li class= "answer-gif"><img src="<%= answer.gif %>" /><span class="author-name"> - <%= answer.answerer.username %></span>
           <!-- best answer button -->
           <div class="best-answer-div" id=<%= answer.id %>>
-          <% if @question.author.id == current_user.id %>
+          <% if logged_in? && @question.author.id == current_user.id %>
             <button class="best-answer-button" type="button">Select Best Answer</button>
           <% end %>
           </div>
@@ -61,10 +65,12 @@
               <% end %>
             <% end %>
           </ol>
+          <% if logged_in? %>
           <form id="answer-comment-<%=answer.id%>" class= "answer-comment" action= <%="/answers/#{answer.id}/comments"%> method="post">
             <input type="textarea" name='comment_text' placeholder="Enter comment here"> </input>
             <input type= "submit" class="button" value= "Submit"></input>
          </form>
+         <% end %>
         <% end %>
 
           </li>
